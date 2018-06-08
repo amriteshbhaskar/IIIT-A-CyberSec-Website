@@ -1,0 +1,84 @@
+.curtain {
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.curtain__wrapper {
+  /* position: fixed; */
+  width: 100%;
+  height: 100%;
+}
+.curtain__wrapper input[type=checkbox] {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+.curtain__wrapper input[type=checkbox]:checked ~ div.curtain__panel--left {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+.curtain__wrapper input[type=checkbox]:checked ~ div.curtain__panel--right {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+.curtain__panel {
+  font-family: consolas;
+  display: flex;
+  align-items: center;
+  background: rgb(3,0,0);
+  color: #fff;
+  float: left;
+  position: relative;
+  width: 50%;
+  height: 100vh;
+  transition: all 1s ease-out;
+  z-index: 2;
+}
+.curtain__panel--left {
+  color:rgb(255,90,90);
+  justify-content: flex-end;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  /* display: none; */
+}
+.curtain__panel--right {
+  color:#2af03f;
+  justify-content: flex-start;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.curtain__content {
+  color: white;
+  position: absolute;
+  text-align: center;
+  z-index: 1;
+  width: 100%;
+}
+.curtain__content img {
+  width: 20%;
+}
+
+  /* Terminal Effect code start from here */
+.word{
+  color:green;
+  animation:type 2.5s steps(28);
+  overflow:hidden;
+  white-space:nowrap;
+  font-family:consolas;
+  border-right:4px solid green;
+  width:28ch;
+}
+@keyframes type{
+  0% {
+    width:0ch;
+  }
+  100%{
+    width:28ch;
+  }
+}
